@@ -15,14 +15,14 @@ export default {
           {"userNO":"user005","userName":"testCC","password":"123456","postUser":"php","depUser":"技术部","roles":"[3001,3002]"},
       ]
     });
-    Mock.mock('/api/getTable', {
-      "code": "000",
-      "datas|5-20": [
-        {
-          "date": '@date("yyyy-MM-dd")',
-          "name": "@cname",
-          "address": "@county(true)"
-        }
+    Mock.mock('/api/role', {
+      "code": "0000",
+      "datas": [
+        {"roleId":"3001","roleName":"超级管理员","description":"超级管理员","postUser":"总经理","depUser":"总经办","roles":"[3001,3002]"},
+        {"roleId":"3002","roleName":"系统管理员","description":"系统管理员","postUser":"前端开发","depUser":"技术部","roles":"[3001,3002]"},
+        {"roleId":"3003","roleName":"查看权限管理员","description":"查看权限管理员","postUser":"php","depUser":"技术部","roles":"[3001,3002]"},
+        {"roleId":"3004","roleName":"新增权限管理员","description":"新增权限管理员","postUser":"php","depUser":"技术部","roles":"[3001,3002]"},
+        {"roleId":"3005","roleName":"删除权限管理员","description":"删除权限管理员","postUser":"php","depUser":"技术部","roles":"[3001,3002]"},
       ]
     });
     Mock.mock('/api/getOptions', {

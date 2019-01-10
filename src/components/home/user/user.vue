@@ -7,7 +7,7 @@
                     <el-input size="medium" prefix-icon="el-icon-search" v-model="model.username" placeholder="请输入查询的员工名称" style="width:200px;"></el-input>
                 </el-form-item>
                 <el-form-item class="form-operation">
-                    <el-button size="medium" type="primary" @click="">新增</el-button>
+                    <el-button size="medium" type="primary" @click="showAdd=true">新增</el-button>
                     <el-button size="medium" type="primary" @click="">下载</el-button>
                 </el-form-item>
             </el-form>
@@ -23,8 +23,8 @@
                 <el-table-column type="index" label="序号" width="80"></el-table-column>
                 <el-table-column prop="userNO" label="员工编号"></el-table-column>
                 <el-table-column prop="userName" label="员工名称"></el-table-column>
-                <el-table-column prop="postUser" label="部门"></el-table-column>
-                <el-table-column prop="depUser" label="岗位"></el-table-column>
+                <el-table-column prop="depUser" label="部门"></el-table-column>
+                <el-table-column prop="postUser" label="岗位"></el-table-column>
                 <el-table-column prop="roles" label="角色"></el-table-column>
                 <el-table-column label="操作">
                     <template slot-scope="scope">
@@ -35,13 +35,22 @@
             </el-table>
         </el-col>
     </el-row>
+    <!-- 新增 -->
+    <div v-if="showAdd">
+         <a-d-d :visible="showAdd" @cancel="showAdd=false"></a-d-d>
+    </div>   
     </div>    
 </template>
 
 <script>
+import ADD from './add'
 export default {
+    components:{
+        ADD
+    },
     data() {
         return {
+            showAdd:false,
             model:{
                 username:'',
             },
@@ -112,12 +121,5 @@ export default {
         float: right;
         margin-right: 10px;
     }
-  .el-pagination {
-    text-align: center;
-    margin-top: 30px;
-  }
-  .el-message-box__btns .cancel {
-    float: right;
-    margin-left: 10px;
-  }
+
 </style>
