@@ -44,6 +44,7 @@
 
 <script>
 import ADD from './add'
+import * as util from '@/utils/utils.js'
 export default {
     components:{
         ADD
@@ -99,7 +100,7 @@ export default {
         handleGetTableData() {
             this.$http.get('/api/user').then(response => {
                 let {code,datas} = response.data;
-                if(code == "0000") {
+                if(util.isCode(code)) {
                     this.tableData =  datas;
                 }
             });
