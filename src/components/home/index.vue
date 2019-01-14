@@ -35,44 +35,45 @@ export default {
     }
 }
 </script>
+<style lang="less" scoped>
+    i.fa {
+        vertical-align: baseline;
+        margin-right: 10px;
+    }
+    body {
+        font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+        background-color: #F2F2F2;
+    }
+    .menu,
+    .el-menu {
+        height: 100%;
+        background-color: #E6E6E6;
+        position: fixed;
+        float: left;
+    }
 
-<style>
-/* fa图标右侧需要流出空白 elementUI图标已自带样式 */
-  i.fa {
-    vertical-align: baseline;
-    margin-right: 10px;
-  }
-  body {
-    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
-    background-color: #F2F2F2;
-  }
-  .menu,
-  .el-menu {
-    height: 100%;
-    background-color: #E6E6E6;
-    position: fixed;
-    float: left;
-  }
+    .container {
+        padding-top: 80px;
+        height: 100%;
+    }
 
-  .container {
-    padding-top: 80px;
-    height: 100%;
-  }
+    .container .main {
+        padding: 0;
+    }
 
-  .container .main {
-    padding: 0;
-  }
+    .container ul li.el-menu-item {
+        font-size: 100%;
+    }
 
-  .container ul li.el-menu-item {
-    font-size: 100%;
-  }
+    .container .mar-l {
+        padding: 0;
+    }
 
-  .container .mar-l {
-    padding: 0;
-  }
-
-  .container .content-wrapper {
-    padding: 20px;
-  }
-
+    .container .content-wrapper {
+        padding: 20px;
+    }
+    /deep/.el-menu-item.is-active{
+        background-color: #ecf5ff;
+    }
 </style>
+

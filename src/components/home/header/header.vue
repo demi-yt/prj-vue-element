@@ -2,11 +2,16 @@
     <div>
         <header>
             <img src="./logo.svg" class="header-logo"/>
-            <ul class="header-operations">   
-                <li>
-                    <span class="header-lang is-active">{{username}}</span>
-                </li>
-            </ul>
+            <div class="header-operations">
+                <el-dropdown @command="handleCommand" menu-align='start'>
+                    <span class="el-dropdown-link header-lang ">{{username}}</span>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item command="singout">退出</el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
+            </div>
+            
+           
         </header>
     </div>
 </template>
@@ -21,6 +26,24 @@ export default {
     data() {
         return {
             
+        }
+    },
+    methods:{
+        handleCommand(command) {
+            if(command == 'singout'){
+                this.$confirm('确定要退出该系统？','提示',{
+                confirmButtonText:'确定',
+                cancelButtonText :'取消',
+                type:'warning'
+            }).then(() => {
+               this.$router.push({path: '/'})
+            }).catch(() => {
+                this.$message({
+                    type:"info",
+                    message:"已取消退出！"
+                });
+            });
+            }
         }
     }
 }
@@ -43,23 +66,12 @@ header {
     display: inline-block;
     vertical-align: middle;
   }
+
   .header-operations {
-    display: inline-block;
-    float: right;
-    padding-right: 30px;
-    height: 100%;
-  }
-  .header-operations li {
-    color: #fff;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0 10px;
-    margin: 0 10px;
-    line-height: 80px;
-    cursor: pointer;
-  }
-  .header-operations li:first-child{
-    cursor: default
+        display: inline-block;
+        vertical-align: middle;
+        float: right;
+        margin-top: 30px;
   }
   .header-opacity{
     opacity: .7;
@@ -69,6 +81,9 @@ header {
     content: "";
     height: 100%;
     vertical-align: middle;
+  }
+  .header-lang{
+      color: #fff;
   }
 </style>
 

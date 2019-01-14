@@ -1,8 +1,8 @@
 <template>
     <el-dialog title="新增" :visible="visibleShow" width="550px" :close-on-click-modal="false" :before-close="handleClose">
-        <el-form :model="model" :rules="rules" ref="userRef" label-width="80px" label-position="left">
+        <el-form :model="model" ref="userRef" label-width="80px" label-position="left">
             <el-form-item label="员工编号">
-                <el-input v-model="model.userNO"></el-input>
+                <el-input v-model="model.userNO" disabled></el-input>
             </el-form-item>
             <el-form-item label="员工姓名">
                 <el-input v-model="model.userName"></el-input>
@@ -41,21 +41,17 @@ export default {
         roleArr:{
             type:Array,
             default:[]
+        },
+        model:{
+            type:Object,
+            default:function() {
+                return {}
+            }
         }
     },
     data() {
         return {
             visibleShow:this.visible,
-            model:{
-                userNO:'',
-                userName:'',
-                depUser:'',
-                postUser:'',
-                roles:[],
-            },
-            rules:{
-
-            }
         }
     },
     watch:{
