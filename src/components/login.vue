@@ -6,12 +6,13 @@
 		  			<p>element后台管理系统</p>
 		  		</div>
 		    	<el-form :model="model" :rules="rules" ref="loginRef">
-					<el-form-item prop="userName">
-						<el-input v-model="model.userName" placeholder="用户名"></el-input>
-					</el-form-item>
-					<el-form-item prop="userPassword">
-						<el-input type="password" placeholder="密码" v-model="model.userPassword"></el-input>
-					</el-form-item>
+                    <el-form-item  prop="userName">
+                        <el-input v-model="model.userName" clearable></el-input>
+                    </el-form-item>
+                    <el-form-item  prop="userPassword">
+                        <el-input v-model="model.userPassword" type="password" clearable></el-input>
+                    </el-form-item>
+					
 					<el-form-item>
 				    	<el-button type="primary" @click="handleSubmit()" class="submit_btn">登陆</el-button>
 				  	</el-form-item>
@@ -31,12 +32,12 @@
                 userPassword:'',
               },
               rules:{
-                userName:[
-                  {require:true,message:'请输入用户名',trigger:'blur'}
+                userName: [
+                    { required: true, message: '请输入用户名', trigger: 'blur' },
                 ],
-                userPassword:[
-                  {require:true,message: '请输入密码',trigger:'blur'}
-                ]
+                userPassword: [
+                    { required: true, message: '请输入密码', trigger: 'blur' },
+                ],
               },
               userData:[],
             }
@@ -109,7 +110,7 @@
 		}
 	}
 	.form_contianer{
-		.wh(320px, 210px);
+		.wh(320px, 180px);
 		.ctp(320px, 210px);
 		padding: 25px;
 		border-radius: 5px;
