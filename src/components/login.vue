@@ -74,7 +74,7 @@
                           });
                           sessionStorage.setItem('username', this.model.userName)
                           console.log(sessionStorage.getItem("username"))
-                          this.$router.push({path: '/index'})
+                          this.$router.push({path: '/homePage'})
                       }else{
                           this.$message({
                             type: 'error',
